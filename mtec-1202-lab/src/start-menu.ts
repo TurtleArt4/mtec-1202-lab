@@ -27,7 +27,7 @@ export default class StartMenu extends Phaser.Scene {
         backgroundImage.setOrigin(.5, .5);
         backgroundImage.setScale(1.5, 1.5);
 
-        startButton.setOrigin(.5, .5);
+        startButton.setOrigin(.25, .5);
         startButton.setScale(.5, .5);
         startButton.setInteractive();
 
