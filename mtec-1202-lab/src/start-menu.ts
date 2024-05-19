@@ -20,6 +20,7 @@ export default class StartMenu extends Phaser.Scene {
 
         const backgroundImage = this.add.image(halfWidth, halfHeight, 'start-menu-bg');
         const startButton = this.add.image(halfWidth, halfHeight, 'start-button');
+        const menuMusic = this.add.audio('menu-bgm')
         // Add background music.
         // Decrease volume.
         // Loop it.
