@@ -22,7 +22,6 @@ class MainGameScene extends Phaser.Scene
         this.aKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.sKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.dKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.input.setDefaultCursor(`url('/red-pointer.cur'), auto`);
 
         const enemyImage = this.add.image(0, 0, 'enemy');
         enemyImage.setScale(0.3)
@@ -52,23 +51,21 @@ class MainGameScene extends Phaser.Scene
 
 
         this.container2.setSize(400, 300);
-        this.container2.setInteractive({ draggable: true });
-
-        this.container2.on('drag', (pointer, dragX, dragY) => {
-            console.log('enemy');
-            this.container2.x = dragX;
-            this.container2.y = dragY;
-
-        });
-
-        this.container2.on('pointerdown', (pointer, dragX, dragY) => {
-            console.log('click')
-        });
+        this.container2.setInteractive({ draggable: false });
     }
 
     update() {
         if(this.aKey?.isDown) {
-            this.container.x = this.container.x -= 10;
+            this.container2.x = this.container2.x -= 10;
+        }
+        if(this.dKey?.isDown) {
+            this.container2.x = this.container2.x += 10;
+        }
+        if(this.sKey?.isDown) {
+            this.container2.y = this.container2.y += 10;
+        }
+        if(this.wKey?.isDown) {
+            this.container2.y = this.container2.y -= 10;
         }
     }
 }
