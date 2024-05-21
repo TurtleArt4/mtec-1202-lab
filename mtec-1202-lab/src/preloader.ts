@@ -9,7 +9,6 @@ export default class Preloader extends Phaser.Scene {
     }
 
     preload() {
-        // Load background music.
         this.load.audio('menu-bgm', '/menu.mp3');
         this.load.audio('level-bmg', 'level.mp3');
         this.load.image('enemy', '/enemy.png');
