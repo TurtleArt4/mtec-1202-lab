@@ -21,7 +21,7 @@ export default class StartMenu extends Phaser.Scene {
         const backgroundImage = this.add.image(halfWidth, halfHeight, 'start-menu-bg');
         const startButton = this.add.image(halfWidth, halfHeight, 'start-button');
         
-        this.song = this.sound.add ('menu-bgm',{volume:0.5})
+        this.song = this.sound.add ('menu-bgm',{volume:0.01})
         this.song.play({
             loop:true
         })
@@ -37,9 +37,10 @@ export default class StartMenu extends Phaser.Scene {
         startButton.on('pointerout', function(){startButton.setTint(0xffffff);})
 
         const thisScene = this.scene;
-        startButton.on('pointerdown', function(){
+        startButton.on('pointerdown', () => {
             // Navigate to the main game.
             thisScene.start ('main-game')
+            this.song.stop();
         });
 
     }

@@ -23,6 +23,22 @@ class MainGameScene extends Phaser.Scene
         this.sKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.dKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
+        const mainCameraWidth = this.cameras.main.width;
+        const mainCameraHeight = this.cameras.main.height;
+
+        const halfHeight = mainCameraHeight / 2;
+        const halfWidth = mainCameraWidth / 2;
+
+        const backgroundImage = this.add.image(halfWidth, halfHeight, 'level-bg');
+        
+        backgroundImage.setOrigin(.5, .5);
+        backgroundImage.setScale(1.5, 1.5);
+
+        this.song = this.sound.add ('level-bgm',{volume:0.01})
+        this.song.play({
+            loop:true
+        })
+
         const enemyImage = this.add.image(0, 0, 'enemy');
         enemyImage.setScale(0.3)
         const characterImage = this.add.image(0, 0, 'character');
@@ -52,6 +68,8 @@ class MainGameScene extends Phaser.Scene
 
         this.container2.setSize(400, 300);
         this.container2.setInteractive({ draggable: false });
+
+        
     }
 
     update() {
