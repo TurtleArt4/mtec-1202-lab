@@ -1,7 +1,7 @@
 // 1. Create a class that is similar to 'MainGameScene'
 // 2. Create a preload method within the class
 // 3. Cut anything that references preloading.
-import Phaser from 'phaser'
+import Phaser, { Scene } from 'phaser'
 
 export default class StartMenu extends Phaser.Scene {
     constructor() {
@@ -20,9 +20,7 @@ export default class StartMenu extends Phaser.Scene {
 
         const backgroundImage = this.add.image(halfWidth, halfHeight, 'start-menu-bg');
         const startButton = this.add.image(halfWidth, halfHeight, 'start-button');
-        // Add background music.
-        // Decrease volume.
-        // Loop it.
+        
         this.song = this.sound.add ('menu-bgm',{volume:0.5})
         this.song.play({
             loop:true
@@ -38,9 +36,10 @@ export default class StartMenu extends Phaser.Scene {
         startButton.on('pointerover', function(){startButton.setTint(0xf0ff00);})
         startButton.on('pointerout', function(){startButton.setTint(0xffffff);})
 
+        const thisScene = this.scene;
         startButton.on('pointerdown', function(){
             // Navigate to the main game.
-            
+            thisScene.start ('main-game')
         });
 
     }

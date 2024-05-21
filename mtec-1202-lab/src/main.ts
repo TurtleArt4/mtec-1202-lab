@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import Preloader from './preloader'
 import StartMenu from './start-menu';
-// Import StartMenu
 
 class MainGameScene extends Phaser.Scene
 {
@@ -23,7 +22,7 @@ class MainGameScene extends Phaser.Scene
         this.aKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.sKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.dKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        // this.input.setDefaultCursor(`url('/red-pointer.cur'), auto`);
+        this.input.setDefaultCursor(`url('/red-pointer.cur'), auto`);
 
         const enemyImage = this.add.image(0, 0, 'enemy');
         enemyImage.setScale(0.3)
